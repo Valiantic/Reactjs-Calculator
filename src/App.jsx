@@ -4,9 +4,19 @@ import './App.css'
 function App() {
   const [result, setResult] = useState('');
 
+  // HANDLE NUMBER INPUTED 
   const clickHandler = (event) => {
     setResult(result.concat(event.target.value));
   };
+  // CLEAR INPUT
+  const clearInput = () => {
+    setResult('');
+  };
+
+  const calculate = () => {
+    setResult(eval(result).toString());
+  }
+
 
   return (
     <>
@@ -30,8 +40,8 @@ function App() {
         <input type="button" value="%" className='button' onClick={clickHandler}/>
         <input type="button" value="." className='button' onClick={clickHandler}/>
 
-        <input type="button" value="Clear" className='button button1' onClick={clickHandler}/>
-        <input type="button" value="=" className='button button1' onClick={clickHandler}/>
+        <input type="button" value="Clear" className='button button1' onClick={clearInput}/>
+        <input type="button" value="=" className='button button1' onClick={calculate}/>
      </div>
     </>
   )
